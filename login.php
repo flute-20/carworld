@@ -10,38 +10,29 @@
 
         if(!empty($email)&& !empty($password) && !is_numeric($email))
         {
-            $query = "select * from signup where email = '$email' limit 1 ";
-            
-            $stmt = $conn->prepare($query);
+            $query = "select * from signup where email = '$gmail' limit 1 ";
+            $result = mysqli_query($conn , $query);
 
-            $stmt->bind_param("s" , $email);
+            if($result)
+            {
+                if($result && mysqli_num_rows($result) > 0)
+                {
+                    $user_data = mysqli_fetch_assoc($result);
 
-            $stmt->execute();
-
-            $result = $stmt->get_result();
-
-            if ($result && $result->num_rows > 0) {
-
-            $user_data = $result->fetch_assoc();
-
-            if (password_verify($password, $user_data['pass'])) {
-
-                header("Location: car.html");
-
-                exit;
-
-            } else {
-                echo "<script type='text/javascript'>alert('Wrong username or password')</script>";
+                    if($user_data['pass']==$password)
+                    {
+                        header("location: car.html");
+                    }
+                }
             }
-
-        } else {
-            echo "<script type='text/javascript'>alert('Email does not exist')</script>";
+            echo "<script type = 'text/javascript'>alert('wrong username or password')</script>";
         }
-    } else {
-        echo "<script type='text/javascript'>alert('Please enter valid email and password')</script>";
+        else{
+            echo "<script type = 'text/javascript'>alert('wrong username or password')</script>";
+        }
     }
-}
 ?>
+
 
 
 <!DOCTYPE html>
