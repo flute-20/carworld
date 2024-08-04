@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Car World | User Details</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="validation.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav>
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="login.php">Login</a>
+          <a href="car-ai.html">Car-AI</a>
+          <a href="contact.html">Contact us</a>
+      </nav>
+  </header>
+    <form action="userform" id="userform">
+      <h1>Enter Your Details</h1>
+
+      <div class="user fullname">
+        <label for="fullname">Full Name:</label>
+        <input type="text" id="name" class="name" required />
+      </div>
+      <div class="user age">
+        <label for="userage">Age:</label>
+        <input type="number" id="age" class="age" min="18" required />
+      </div>
+      <div class="user mail">
+        <label for="usermail">Email:</label>
+        <input type="email" id="email" class="email" required/>
+      </div>
+      <div class="user no">
+        <label for="userno">Contact No:</label>
+        <input type="tel" id="contact" name="contact" required/>
+      </div>
+
+      <div class="user sub_btn">
+        <input type="submit" value="submit" onclick="userform()"/>
+      </div>
+    </form>
+
+    <p id="success-message" style="display: none">
+      Your Data Is Successfully Taken
+    </p>
+
+    <div class="nxtbtn1">
+      <a href="#">
+        <input type="button" value="Next" id="button1" class="button1" />
+      </a>
+    </div>
+
+    <div class="previous_btn">
+      <a href="#">
+        <input type="button" value="Previous" id="button2" class="button2" />
+      </a>
+    </div>
+    
+  </body>
+</html>
